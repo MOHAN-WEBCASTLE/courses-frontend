@@ -1,0 +1,11 @@
+<div class="top-content">
+    <h1 class="name" >Courses</h1>
+    <div class="side-bar" >
+    <p routerLink="" (click)="sideBarDom(0)" [ngClass]="{'white' : sidebar[0]}" >Users</p>
+    <p routerLink="institution" (click)="sideBarDom(1)" [ngClass]="{'white' : sidebar[1]}" >Institutions</p>
+    </div>
+    <div style="display: flex;align-items: center;width: 70%;justify-content: flex-end;">
+        <span (click)="logout()"  style="color: #77787a;cursor: pointer;" >logout</span>
+    </div>
+
+    </div>

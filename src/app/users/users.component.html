@@ -1,0 +1,183 @@
+<div class="overlay-content" *ngIf="overlayStatus" >
+<div  *ngIf="addoverlay" class="overlay-container">
+     <div class="edit-header" >
+        <h2>Add User</h2>
+        <ion-icon name="close-outline" (click)="closeOverlay()" ></ion-icon>
+     </div> 
+    <div>
+        <form>
+           <div class="input-container">
+            <label >UserName</label>
+            <input type="text">
+           </div>
+           <div class="input-container">
+            <label >Phone</label>
+            <input type="text">
+           </div>
+           <div class="input-container">
+            <label >Email</label>
+            <input type="text">
+           </div>
+           <div class="input-container">
+            <label >Status</label>
+            <select>
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+            </select>    
+           </div> 
+           <div class="button-container" style="display: flex;justify-content: flex-end;">
+            <button class="update">Add</button>
+            <button class="cancel" >Cancel</button>
+           </div>
+        </form>
+    </div>
+</div>
+<div *ngIf="editoverlay" class="overlay-container">
+    <div class="edit-header" >
+       <h2>Edit User</h2>
+       <ion-icon name="close-outline" (click)="closeOverlay()" ></ion-icon>
+    </div> 
+   <div>
+       <form [formGroup]="editUserForm" (ngSubmit)="update()" >
+          <div class="input-container">
+           <label >UserName</label>
+           <input formControlName="name" type="text">
+          </div>
+          <div class="input-container">
+           <label >Phone</label>
+           <input formControlName="phone" type="text">
+          </div>
+          <div class="input-container">
+           <label >Email</label>
+           <input formControlName="email" type="text">
+          </div>
+          <div class="input-container">
+           <label >Status</label>
+           <select formControlName="status">
+               <option value="true">Active</option>
+               <option value="false">Inactive</option>
+           </select>    
+          </div> 
+          <div class="button-container" style="display: flex;justify-content: flex-end;">
+           <button class="update">Update</button>
+           <button class="cancel" >Cancel</button>
+          </div>
+       </form>
+   </div>
+</div>
+
+</div>
+<div  *ngIf="user_details" class="user-content" [ngClass]="{'blur' : overlayStatus}" >
+     
+
+
+<div class="left-content" >
+    <div class="count-container">
+        <h2 style="font-weight: 600;margin-bottom: 10px;" >Profile</h2>
+        <table>
+            <tr>
+               <td>Name</td>
+               <td>{{user_details.name}}</td> 
+            </tr>
+             <tr>
+                <td>Phone</td>
+                <td>{{user_details.phone}}</td> 
+             </tr>
+             <tr>
+                <td>Email</td>
+                <td>{{user_details.email}}</td>
+             </tr>
+             <tr>
+                <td>Type</td>
+                <td>{{user_details.user_type}}</td>
+             </tr>
+             <tr>
+                <td>Status</td>
+                <td *ngIf="user_details.status == true" style="color:green" >Active</td>
+                <td *ngIf="user_details.status == false" style="color:red" >Inactive</td>
+             </tr>
+        </table>    
+        </div>
+    <div class="count-container">
+        <h2 style="font-weight: 600;margin-bottom: 10px;" >Total Users</h2>
+        <h1 class="total-user">20</h1>
+         <div class="skillBarContainer">
+              <div class="skillBarValue value-70">
+                </div>
+                </div>
+          <div style="display: flex;justify-content: space-around;margin-top:25px;" >
+            <div style="display: flex;align-items: center;" > <ion-icon style="color:#2BEBC8;margin-right: 5px;" name="stop"></ion-icon>  Active</div>
+            <div style="display: flex;align-items: center;"  > <ion-icon  style="color: #2bebc869 ;margin-right: 5px;"  name="stop"></ion-icon> Inactive</div>
+          </div>      
+        </div>  
+
+
+         
+</div>
+
+
+ <div class="table-container" >
+    <div class="head-button">
+        <h2>Users</h2>
+        <!-- <button class="add" (click)="showOverlay('add')" >+ Add User</button> -->
+    </div>
+    <form [formGroup]="filterForm" (ngSubmit)="filter()" class="search-container" >
+
+        <div class="search-input">
+            <label >Name</label>
+            <input placeholder="Course Name"  formControlName="name" type="text">
+           </div>
+
+           <div class="search-input">
+            <label >Status</label>
+            <select formControlName="status" >
+                <option value="">All</option>
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+            </select>    
+           </div>    
+
+         <div class="search-input">
+            <label style="visibility: hidden;" >Status</label>
+            <button class="add" type="submit">Search</button>
+         </div>  
+        </form>
+    <div class="user-list" >
+     <table>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                email
+            </th>
+            <th>
+                phone
+            </th>
+            <th>
+                status
+            </th>
+            <th *ngIf="user_details.user_type == 'super_admin'" >
+                action
+            </th>
+        </tr>
+        
+        <tr *ngFor="let user of usersList" >
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td *ngIf="user.status == true" style="color:green" >Active</td>
+            <td *ngIf="user.status == false" style="color:red" >Inactive</td>
+            <td *ngIf="user_details.user_type == 'super_admin'" ><ion-icon name="create" (click)="edit(user);showOverlay('edit')" class="edit-icon" ></ion-icon></td>
+        </tr>
+    
+
+
+    
+    
+        
+     </table>
+    </div>
+ </div>   
+
+</div>

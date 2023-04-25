@@ -1,0 +1,157 @@
+<div class="overlay-content" *ngIf="overlayStatus" >
+    <div  *ngIf="addoverlay" class="overlay-container">
+         <div class="edit-header" >
+            <h2>Add Institution</h2>
+            <ion-icon name="close-outline" (click)="closeOverlay()" ></ion-icon>
+         </div> 
+        <div>
+            <form [formGroup]="institutionForm" (ngSubmit)="onSubmit()" >
+               <div class="input-container">
+                <label >Institution</label>
+                <input formControlName="name" type="text">
+               </div>
+               <div class="input-container">
+                <label >Email</label>
+                <input formControlName="email" type="text">
+               </div>
+               <div class="input-container">
+                <label >Phone</label>
+                <input formControlName="phone" type="text">
+               </div>
+
+               <div class="input-container">
+                <label >Location</label>
+                <input formControlName="location" type="text">
+               </div>
+                
+               <!-- <div class="input-container">
+                <label >Status</label>
+                <select>
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                </select>    
+               </div>  -->
+               <div class="button-container" style="display: flex;justify-content: flex-end;">
+                <button type="submit" class="update">Add</button>
+                <button type="reset" class="cancel" >Cancel</button>
+               </div>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="editoverlay" class="overlay-container">
+        <div class="edit-header" >
+           <h2>Edit User</h2>
+           <ion-icon name="close-outline" (click)="closeOverlay()" ></ion-icon>
+        </div> 
+       <div>
+           <form [formGroup]="editInstitutionForm" (ngSubmit)="update()" >
+            <div class="input-container">
+                <label >Institution</label>
+                <input formControlName="name" type="text">
+               </div>
+               <div class="input-container">
+                <label >Email</label>
+                <input formControlName="email"  type="text">
+               </div>
+               <div class="input-container">
+                <label >Phone</label>
+                <input formControlName="phone" type="text">
+               </div>
+
+               <div class="input-container">
+                <label >Location</label>
+                <input formControlName="location" type="text">
+               </div>
+                
+              <div class="input-container">
+               <label >Status</label>
+               <select formControlName="status" >
+                   <option value="true">Active</option>
+                   <option value="false">Inactive</option>
+               </select>    
+              </div> 
+              <div class="button-container" style="display: flex;justify-content: flex-end;">
+               <button type="submit" class="update">Update</button>
+               <button type="reset" class="cancel" >Cancel</button>
+              </div>
+           </form>
+       </div>
+    </div>
+    
+    </div>
+    <div class="ins-content" [ngClass]="{'blur' : overlayStatus}" >
+
+     <div class="table-container" >
+        <div class="head-button">
+            <h2>Institutions</h2>
+            <button class="add" (click)="showOverlay('add')" >+ Add Institution</button>
+        </div>
+        <form [formGroup]="filterForm" (ngSubmit)="filter()" class="search-container" >
+
+            <div class="search-input">
+                <label >Institution </label>
+                <input placeholder="Institution Name"  formControlName="name" type="text">
+               </div>
+
+               <div class="search-input">
+                <label >Status</label>
+                <select formControlName="status" >
+                    <option value="">All</option>
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                </select>    
+               </div>    
+
+             <div class="search-input">
+                <label style="visibility: hidden;" >Status</label>
+                <button class="add" type="submit">Search</button>
+             </div>  
+            </form>
+        <div class="user-list" >
+         <table>
+            <tr>
+                <th>
+                    Institution
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    email
+                </th>
+                <th>
+                    phone
+                </th>
+                <th>
+                    status
+                </th>
+                <th>
+                    No of Courses
+                </th>
+                <th>
+                    Courses
+                </th>
+                <th>Action</th>
+            </tr>
+            
+            <tr *ngFor="let institution of institutionList" >
+                <td>{{institution.name}}</td>
+                <td>{{institution.location}}</td>
+                <td>{{institution.email}}</td>
+                <td>{{institution.phone}}</td>
+                <td *ngIf="institution.status == true" style="color:green" >Active</td>
+                <td *ngIf="institution.status == false" style="color:red" >Inactive</td>
+                <td>{{institution.courseCount}}</td>
+                <td><button (click)="viewCourse(institution._id)"  class="add" >View Courses</button></td>
+                <td><ion-icon name="create" (click)="edit(institution);showOverlay('edit')" class="edit-icon" ></ion-icon></td>
+            </tr>
+     
+        
+        
+            
+         </table>
+        </div>
+     </div>   
+    
+    </div>
+    

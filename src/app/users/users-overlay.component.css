@@ -1,0 +1,88 @@
+.overlay-content
+{
+    /* background-color: rgba(211, 211, 211, 0.137); */
+    height:90vh;
+    width: 100vw;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.overlay-container
+{
+ background-color: #101011;
+ width: 30%;
+ padding: 30px;
+ border-radius: 5px;
+}
+
+.input-container
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.input-container label
+{
+    color: #60626C;
+    width: 40%;
+}
+
+.input-container input,.input-container select
+{
+    background-color: transparent;
+    border: 1px solid  #60626C;
+    border-radius: 5px;
+    padding: 10px 10px;
+    width:60%;
+    color: white;
+}
+
+
+.edit-header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.edit-header ion-icon
+{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.button-container
+{
+ margin-top: 25px;   
+}
+
+.button-container button
+{
+    color:white;
+    border: 0px solid black;
+    /* background-color: black; */
+    padding:10px 20px;
+    margin-left: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update
+{
+    background-color: #5630ee;
+
+}
+.cancel
+{
+/* background-color: #2BEBC8; */
+background-color: #60626C;
+}
+
+.blur
+{
+    filter: blur(3px);
+}

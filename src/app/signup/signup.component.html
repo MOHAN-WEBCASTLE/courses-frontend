@@ -1,0 +1,48 @@
+<div class="login-container" >
+    <div class="content" >
+       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <h2>SignUp</h2>
+        <div>
+            <div class="flex-column" >
+                <label for="user_id">Name</label>
+                <input  formControlName="name" type="text">
+                <!-- <div *ngIf="submitted && loginControl.user_id.errors" class="warning">
+                    <div *ngIf=" loginControl.user_id.errors.required">User ID Required</div>
+                </div> -->
+            </div>
+            <div class="flex-column" >
+                <label for="user_id">Email</label>
+                <input  formControlName="email" type="text">
+                <!-- <div *ngIf="submitted && loginControl.user_id.errors" class="warning">
+                    <div *ngIf=" loginControl.user_id.errors.required">User ID Required</div>
+                </div> -->
+            </div>
+            <div class="flex-column" >
+                <label for="user_id">Phone</label>
+                <input  formControlName="phone" type="text">
+                <!-- <div *ngIf="submitted && loginControl.user_id.errors" class="warning">
+                    <div *ngIf=" loginControl.user_id.errors.required">User ID Required</div>
+                </div> -->
+            </div>
+            <div class="flex-column" >
+                <label for="password">Password</label>
+                <input    formControlName="password"  type="password">
+                <!-- <div *ngIf="submitted && loginControl.password.errors" class="warning">
+                    <div *ngIf="loginControl.password.errors.required">Password Required</div>
+                </div> -->
+            </div>
+            <div class="flex-column" >
+                <label for="role">Role</label>
+                <select   formControlName="user_type"  >
+                    <option value="admin">Admin</option>
+                    <!-- <option value="employee">Employee</option> -->
+                </select>
+            </div>
+        </div>
+        <div class="flex-column" >
+            <button class="add login-btn"  type="submit" >Signup</button>
+        </div>
+    </form>
+    <div class="register" routerLink="../login" >Login</div>
+    </div>
+</div>

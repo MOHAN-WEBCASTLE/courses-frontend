@@ -1,0 +1,33 @@
+.top-content
+{
+    display: flex;
+    width: 96%;
+    padding: 1.5% 1% 0% 1%;
+    margin: 0% 3%;
+}
+.name
+{
+    font-weight: 800;
+    font-size: 200%;
+    width: 15%;
+    color: #2BEBC8;                      
+}
+.side-bar
+{
+    display: flex;
+    width: 15%;
+    align-items: center;
+    color: #77787a;
+    justify-content:space-between;
+}
+.side-bar p:hover
+{
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.white
+{
+    color: white;
+}

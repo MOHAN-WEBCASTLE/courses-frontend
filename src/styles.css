@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    background-color: #1E1F22;
+    color: rgb(255, 255, 255);
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+
+input:focus,select:focus
+{
+    outline: none;
+}
+
+
+option
+{
+    color: white;
+    background-color: #1E1F22;
+}
+
+option:hover
+{
+    background-color: #141414;
+}
+
+
+label
+{
+    color: #60626C;
+    width: 40%;
+}
+
+input,select
+{
+    background-color: transparent;
+    border: 1px solid  #60626C;
+    border-radius: 5px;
+    padding: 7px 7px;
+    color: white;
+}
+
+
+.add
+{
+    color: white;
+    background-color: #6746ED;
+    border: 0px solid black;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+.add:hover
+{
+    background-color: #5630ee;
+}
